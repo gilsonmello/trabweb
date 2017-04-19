@@ -1,4 +1,5 @@
 <?php
+include_once "../../includes/conexao.php";
 session_start();
 ?>
 <html>
@@ -18,7 +19,7 @@ session_start();
                 if(isset($_GET['code'])){
             ?>
             <div class="alert alert-danger" style="text-align: center;font-size: 110%;">
-                <strong>Sinto muito! Você não tem autorização para entrar nesta área.</strong>
+                <strong>Usuário ou Senha incorreta, tente novamente.</strong>
             </div>
             <?php
                 }
@@ -27,7 +28,7 @@ session_start();
             <h2 class="titulo1">Área protegida</h2>
             <h3 class="titulo2">Digite seu usuário e senha</h3>
             <div id="login">
-                <form action="../php/validarLogin.php" method="get" name="frmlogin">
+                <form action="../php/validarLogin.php" method="POST" name="frmlogin">
                 <div class="form-group">
                     <label for="usuario">Usuário:</label>
                     <input type="text" class="form-control" name="nUsuario" id="usuario" placeholder="Usuário">
