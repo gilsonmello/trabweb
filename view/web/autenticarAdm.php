@@ -16,14 +16,16 @@ session_start();
         <div class="container">
             <?php
                 include "../../includes/header.html";
-                if(isset($_GET['code'])){
+                if(isset($_GET['code']) && $_GET['code'] == 0){
             ?>
             <div class="alert alert-danger" style="text-align: center;font-size: 110%;">
                 <strong>Usuário ou Senha incorreta, tente novamente.</strong>
             </div>
-            <?php
-                }
-            ?>
+            <?php }elseif(isset($_GET['code']) && $_GET['code'] == 1){?>
+            <div class="alert alert-danger" style="text-align: center;font-size: 110%;">
+                <strong>Você não tem permissão para acessar essa área.</strong>
+            </div>
+            <?php }?>
             <div id="area">
             <h2 class="titulo1">Área protegida</h2>
             <h3 class="titulo2">Digite seu usuário e senha</h3>
